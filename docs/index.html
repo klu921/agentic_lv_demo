@@ -47,7 +47,7 @@
 
 <p>The caption index returned many captions with high similarity scores. The strongest was: <code>frame_1672</code>, which described a setting with chairs and framed pictures reminiscent of a restaurant. Other captions (not listed here) clustered around frame 1672, leading the LLM to search for frames centered here.</p>
 </div>
-<img src="captions/captions_2657.png" max_width="800px">
+<img src="captions/captions_2657.png" style="max_width:1200px;">
 
 
 <div class="block vlm">
@@ -111,11 +111,12 @@ The pipeline reached its conclusion through a caption search, a VLM query, a cri
 
 <div class="block caption">
 <h2>LLM caption search</h2>
-<p><code>council deep thought</code>.  A few high similarity captions around 390, 415.
+<p><code>council deep thought</code>.  A few high similarity captions around 390, 415. Below is a spread of the top 7 captions from the query, along with corresponding scores, frames. The model received k = 40 top captions.
+<img src="captions/captions_519.png" alt="Top 7 captions from 'council deep thought'" style="max-width:800px;">
+
 </p>
 </div>
 
-<img src="captions/captions_519.png" alt="Top 7 captions from 'council deep thought'" style="max-width:800px;">
 
 
 <div class="block vlm">
@@ -213,9 +214,10 @@ The pipeline reached its conclusion through a caption search, two VLM queries, a
 
 <div class="block caption">
 <h2>LLM caption search</h2>
-<p><code>"blue clothes" AND "yellow clothes"</code> &nbsp;— the model searched the subtitle index for co-mentions of these colour terms. Matches were sparse, so it fell back to colour-histogram matching and surfaced two temporal windows:<br>
-• <strong>Window-A</strong> (frames 2057-2073): wide classroom context.<br>
-• <strong>Window-B</strong> (frame 2086): close interaction.</p>
+<p><code>"blue clothes" AND "yellow clothes"</code> &nbsp;— the model searched the subtitle index for co-mentions of these colour terms. It found matches around the 2057-2073 frame window. The top matches are shown below.<br>
+
+ <img src="captions/captions_2657.png" style="max_width:1200px;">
+
 </div>
 
 <div class="block vlm">
