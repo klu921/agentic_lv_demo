@@ -8,6 +8,14 @@
  h1{margin-top:0}
  .block{margin-bottom:48px;padding:20px;background:#fff;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1)}
  img{max-width:220px;margin:4px;border:1px solid #ddd;border-radius:4px}
+ /* NEW: make caption images wide */
+ img[src^="captions/"]{
+   max-width:none;      /* cancel the global 220px cap */
+   width:min(100%, 1200px);
+   height:auto;
+   display:block;
+   margin:12px 0;       /* nicer spacing for large images */
+ }
  ul{list-style:none;padding-left:0;margin-left:0}
  code{background:#eee;padding:2px 4px;border-radius:3px}
  .block.caption{background:#e6f2ff}
@@ -47,7 +55,8 @@
 
 <p>The caption index returned many captions with high similarity scores. The strongest was: <code>frame_1672</code>, which described a setting with chairs and framed pictures reminiscent of a restaurant. Other captions (not listed here) clustered around frame 1672, leading the LLM to search for frames centered here.</p>
 </div>
-<img src="captions/captions_2657.png" style="max_width:1200px;">
+<!-- removed incorrect inline style (max_width) and rely on CSS above -->
+<img src="captions/captions_2657.png">
 
 
 <div class="block vlm">
@@ -112,7 +121,7 @@ The pipeline reached its conclusion through a caption search, a VLM query, a cri
 <div class="block caption">
 <h2>LLM caption search</h2>
 <p><code>council deep thought</code>.  A few high similarity captions around 390, 415. Below is a spread of the top 7 captions from the query, along with corresponding scores, frames. The model received k = 40 top captions.
-<img src="captions/captions_519.png" alt="Top 7 captions from 'council deep thought'" style="max-width:800px;">
+<img src="captions/captions_519.png" alt="Top 7 captions from 'council deep thought'">
 
 </p>
 </div>
@@ -216,7 +225,7 @@ The pipeline reached its conclusion through a caption search, two VLM queries, a
 <h2>LLM caption search</h2>
 <p><code>"blue clothes" AND "yellow clothes"</code> &nbsp;— the model searched the subtitle index for co-mentions of these colour terms. It found matches around the 2057-2073 frame window. The top matches are shown below.<br>
 
- <img src="captions/captions_1019.png" style="max_width:1200px;">
+ <img src="captions/captions_1019.png">
 
 </div>
 
@@ -274,6 +283,7 @@ function openTrace(evt, traceName){
   document.getElementById(traceName).style.display="block";
   evt.currentTarget.classList.add("active");
 }
+// Open the first tab by default
 document.getElementById("defaultOpen").click();
 </script>
 </body>
